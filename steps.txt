@@ -1,0 +1,99 @@
+WORD DUEL MANUAL SETUP AND RELEASE STEPS
+========================================
+
+1. Android Studio and SDK
+- Install the latest stable Android Studio.
+- Open `D:\planner\app1` as a project.
+- Let Gradle sync and install the requested Android SDK 36, build tools, and emulator images.
+- Keep JDK 17 in Android Studio because AGP 8.13.x expects a modern JDK even though the app targets JVM 11 bytecode.
+
+2. Dictionary validation strategy
+- Development default: the app points to `https://api.dictionaryapi.dev/api/v2/` using `WORD_VALIDATOR_SOURCE=dictionaryapi`.
+- The app can stay on the free path in production too. No paid Oxford integration is required.
+- Built-in fallback recommendation: keep `dictionaryapi.dev` as primary validation and use Datamuse as the free secondary source.
+- As of July 6, 2026, `dictionaryapi.dev` says it is free and will remain free. Datamuse says it is free today, but starting January 1, 2027 it will require an API key with a published limit of 100,000 requests per day.
+
+3. Local configuration
+- Edit `local.properties` and add:
+  `WORD_VALIDATOR_BASE_URL=https://api.dictionaryapi.dev/api/v2/`
+  `WORD_VALIDATOR_SOURCE=dictionaryapi`
+  `ENABLE_HTTP_LOGGING=true`
+- For production zero-cost deployment, keep:
+  `WORD_VALIDATOR_BASE_URL=https://api.dictionaryapi.dev/api/v2/`
+  `WORD_VALIDATOR_SOURCE=dictionaryapi`
+  `ENABLE_HTTP_LOGGING=false`
+
+4. Optional free fallback notes
+- `dictionaryapi.dev` is enough for the current app because the game only needs to know whether a word exists.
+- Datamuse is useful as a free fallback because it can return exact-word metadata and definitions from WordNet and Wiktionary.
+- If you ever want stricter control, you can add your own proxy later, but that is not required for the zero-cost version.
+
+5. Zero-cost hosting choices for required public files
+- Privacy policy host: GitHub Pages is available on public repositories with GitHub Free.
+- Optional alternative: Firebase Hosting has a no-cost Spark plan with generous no-cost usage limits.
+- The Android app itself does not need your own backend for the current free architecture.
+
+6. App package and branding
+- Current package name is `com.wordduel.app`. Change it only before publishing if you need a different final identifier.
+- Replace launcher icons in `app/src/main/res/mipmap-*` with final branded assets.
+- Update `app_name` in `app/src/main/res/values/strings.xml` only if your Play Store title changes.
+
+7. Build and test commands
+- Unit tests: `.\gradlew testDebugUnitTest`
+- Instrumentation tests: `.\gradlew connectedDebugAndroidTest`
+- Debug APK: `.\gradlew assembleDebug`
+- Release bundle: `.\gradlew bundleRelease`
+
+8. Quality checks before release
+- Test on at least one small phone, one large phone, and one tablet-sized emulator.
+- Verify the timer reaches zero and the result screen appears cleanly.
+- Verify both invalid and valid submissions.
+- Verify airplane-mode handling: the app should fail gracefully when validation cannot reach the server.
+- Confirm no extra permissions are requested beyond `INTERNET`.
+
+9. Signing and Play App Signing
+- In Android Studio, create a release keystore and store it outside the repo.
+- Record alias, passwords, and recovery details in your secure password manager.
+- Enroll in Play App Signing in Google Play Console.
+- Keep the upload key backed up securely. Do not commit keystore files.
+
+10. Privacy policy and legal setup
+- Copy `docs/privacy-policy-template.md` and customize it with your company or publisher contact details.
+- Host the final privacy policy on a public HTTPS URL, such as GitHub Pages.
+- Add that URL in the Play Console App Content section.
+
+11. Data Safety form guidance
+- Declare that the app sends user-entered words to a backend or third-party dictionary service for app functionality.
+- Declare that player names are entered by users and only handled locally unless you later add accounts or analytics.
+- If you add analytics, crash reporting, ads, or authentication later, update the Data Safety form before release.
+
+12. Target SDK and policy readiness
+- Keep `targetSdk` aligned with the current Play requirement. This project is already set to 36.
+- Recheck Play deadlines before submission because requirements can change.
+- Complete the App Content questionnaires: privacy policy, ads, target audience, data safety, and app access.
+
+13. Internal testing track
+- Create the app in Google Play Console.
+- Upload the first `bundleRelease` AAB to Internal Testing.
+- Add tester email addresses.
+- Install from the Play-distributed build and validate startup, network validation, and rematch flow.
+- Plan for the Google Play developer registration fee separately. The app stack can be zero-cost, but Play Console enrollment is a separate platform cost.
+
+14. Store listing preparation
+- Prepare app icon 512x512.
+- Prepare feature graphic 1024x500.
+- Prepare at least 2 phone screenshots.
+- Write concise store description copy focused on the local two-player word duel mechanic.
+- Add support email and optional website.
+
+15. Release preparation
+- Set `ENABLE_HTTP_LOGGING=false`.
+- Verify the release build still points to `https://api.dictionaryapi.dev/api/v2/` unless you intentionally replace it with another free source.
+- Run `.\gradlew clean bundleRelease`.
+- Upload the AAB to the production release or closed testing track.
+- Review warnings in Play Console before rolling out.
+
+16. Post-launch maintenance
+- Monitor `dictionaryapi.dev` uptime and Datamuse availability.
+- Watch Play Console Android vitals for crashes and ANRs.
+- Re-check Datamuse terms before January 1, 2027 if you still use it as a fallback.

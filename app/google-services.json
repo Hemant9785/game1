@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "328752477083",
+    "project_id": "games-913ab",
+    "storage_bucket": "games-913ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328752477083:android:98706705e81e8afe38673e",
+        "android_client_info": {
+          "package_name": "com.wordduel.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD111qNDksUok06YNEMadvBUaCz_Li6HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
