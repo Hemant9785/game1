@@ -1,0 +1,13 @@
+Abuse Cases
+
+Cases To Watch
+- Offensive word probing
+- Spam submissions
+- Intentional disconnect to avoid loss
+- Match farming with colluding accounts
+- Input automation
+
+Product Rules
+- Offensive attempts are rejected and logged.
+- Disconnecting after clear loss should still count as loss.
+- Repeated suspicious pairing behavior should be reviewable through telemetry.

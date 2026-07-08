@@ -1,0 +1,25 @@
+Accessibility
+
+Accessibility Goals
+- Ensure the game remains usable under time pressure for a wide range of players.
+
+Visual Accessibility
+- Maintain strong contrast between letters, timer, and background.
+- Do not rely on color alone to show valid/invalid status.
+- Use readable font sizes for the core letters and timer.
+
+Motor Accessibility
+- Large touch targets for letter selection and submit.
+- Avoid tiny dismiss buttons near primary actions.
+- Permit keyboard-driven correction without punishing accidental mistypes more than necessary.
+
+Reading Accessibility
+- Use plain language in feedback.
+- Keep status text short and persistent long enough to read.
+
+Audio/Haptic Accessibility
+- Important round events should not depend only on sound or only on haptics.
+- Provide visual equivalents for all important feedback.
+
+Fairness Note
+- Because typing speed is central to the game, accessibility settings should improve readability and control clarity but should not automate submissions or bypass core competitive skill.

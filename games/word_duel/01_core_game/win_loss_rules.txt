@@ -1,0 +1,27 @@
+Win And Loss Rules
+
+Win Condition
+- A player wins the round when their submitted word is the first submission that passes all validation checks.
+
+Loss Conditions
+- Opponent submits a valid word first.
+- Player disconnects beyond the reconnect grace window.
+- Player abandons the match.
+
+Draw Conditions
+- Timer expires with no valid accepted word from either player.
+- Both players disconnect before a winner is determined and neither reconnects in time.
+
+Submission Resolution Rule
+- Winning is determined by authoritative server acceptance time, not device-local tap time.
+- If two valid submissions are extremely close, the server compares receipt timestamps after latency normalization rules defined in multiplayer documents.
+- If timestamps are functionally identical within the configured tie window, use deterministic tie-breaking rather than random choice.
+
+Recommended Tie Window
+- A very small server-defined tie window such as 100 ms should be used to handle near-simultaneous arrivals.
+- Inside that window, the earlier server-received valid payload wins unless fairness systems detect ordering distortion beyond tolerance.
+
+After Round Outcome
+- End the round immediately after a winner is locked.
+- Do not allow additional late submissions to reverse the result.
+- Show the winning word and the losing player’s last attempted word if it was submitted before lock and is safe to display.

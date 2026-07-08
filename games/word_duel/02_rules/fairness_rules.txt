@@ -1,0 +1,30 @@
+Fairness Rules
+
+Authoritative Resolution
+- Match state and winner resolution must be authoritative on the server side.
+
+Latency Fairness
+- Use server receipt timestamps as the base comparison point.
+- Preserve a small tie-resolution window for near-simultaneous submissions.
+- If advanced networking permits, record client send time for diagnostics only, not final authority.
+
+Letter Fairness
+- Letter assignment through player choice should still be constrained by a fairness pool for auto-picks and matchmaking modes that risk impossible pairs.
+- Avoid recurring punishing letters in consecutive auto-assigned rounds.
+- Random direction must use a true 50/50 assignment over time and be resolved server-side.
+- Direction reveal must be delivered to both players at the same gameplay start boundary.
+
+Dictionary Fairness
+- Both players must be validated against the same dictionary stack and same content policy version.
+
+Input Fairness
+- Paste is disabled.
+- Excessive submission spam is rate-limited.
+- Repeated invalid attempts should not freeze the other player’s experience.
+
+Information Fairness
+- Neither player sees the opponent’s typed input in real time.
+- Only final accepted result and optional safe summary data are shown.
+
+Rematch Fairness
+- Rematches should swap player order or neutralize any order-based UI advantage if such advantage exists.

@@ -1,0 +1,18 @@
+Stats
+
+Core Stats
+- Matches played
+- Wins
+- Losses
+- Draws
+- Win rate
+- Average time to valid submission
+- Fastest win
+- Longest streak
+- Invalid submission rate
+- Most used starting letter
+- Most used ending letter
+
+Usage
+- Stats should support self-improvement and profile identity.
+- Keep public stats modest in MVP to avoid overwhelming casual users.

@@ -1,0 +1,25 @@
+Letter Pair Balance
+
+Balance Goal
+- Preserve variety without creating impossible or near-impossible rounds.
+
+Easy Pairs
+- Common consonant-to-common consonant or vowel-ending combinations.
+- Examples likely include C-T, B-R, S-T, P-N.
+
+Hard Pairs
+- Rare starts and rare ends such as Q-X or J-Q.
+
+MVP Policy
+- Allow some challenging letters, but avoid combinations with extremely low valid-word coverage.
+- Maintain a reviewed blacklist or weight table informed by real dictionary coverage.
+- Balance review must consider both directional outcomes for the same chosen pair because either mapping may be rolled at round start.
+
+Auto-Pick Fairness
+- If auto-assignment is used, prefer medium-difficulty letters.
+- Do not auto-pick rare punitive pairs for first-time players.
+
+Monitoring Metrics
+- Timeout rate by pair
+- Invalid-attempt rate by pair
+- Average time-to-first-valid by pair

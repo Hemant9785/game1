@@ -1,0 +1,16 @@
+Ranked Mode
+
+Why Ranked
+- Word Duel has a clear winner per round and naturally supports ladders.
+
+Requirements Before Launch
+- Stronger anti-cheat confidence
+- Letter-pair fairness data
+- Stable validation latency
+- Disconnect abuse protections
+- Match quality and skill-rating system
+
+Ranked Rules Suggestions
+- Standardized timer and letter pool
+- No experimental dictionary policies
+- Clear penalties for repeated disconnects

@@ -1,0 +1,29 @@
+Lobby Screen
+
+Purpose
+- Prepare the player for a quick live 1v1 match.
+
+Required Elements
+- Game title
+- Primary action to start or join a match
+- Optional player identity display
+- Connection status
+- Brief rules summary
+- Estimated wait indicator if matchmaking is used
+
+Behavior
+- Screen should communicate that matches are short and real time.
+- If a private room or invite flow exists later, keep it secondary in MVP.
+- If the player returns from a finished round, rematch should be the primary path rather than full relobby where possible.
+
+Content Priorities
+- "Pick letters. Type a valid word first. Win."
+- Keep the promise of a 60-second max round visible.
+
+Error Handling
+- If matchmaking fails, offer retry without forcing full app restart.
+- If network is unavailable, clearly state that live play needs connection.
+
+Visual Tone
+- Clean, sharp, low clutter.
+- Focus on immediacy, not decoration.

@@ -1,0 +1,19 @@
+Animations
+
+Animation Goals
+- Increase excitement without delaying interaction.
+
+MVP Animation Set
+- Countdown intro
+- Letter lock confirmation
+- Submit pending pulse
+- Win state burst
+- Loss state settle
+- Rematch accept transition
+
+Timing Guidance
+- Keep gameplay-critical animations under 300 ms.
+- Result animation can peak near 500 to 700 ms but should not block the rematch CTA.
+
+Design Rule
+- Animation should clarify state change, not merely decorate.

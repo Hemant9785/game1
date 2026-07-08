@@ -1,0 +1,17 @@
+Haptics
+
+Design Goal
+- Reinforce urgency and outcome without turning the game noisy or tiring.
+
+Recommended Haptic Events
+- Letter confirmed: light tap
+- Invalid submission: short crisp bump
+- Valid submission accepted: stronger success pulse
+- Round win: short celebratory sequence
+- Round loss: single firm pulse
+- Countdown final 3 seconds: optional subtle taps each second if tested positively
+
+Guidelines
+- Keep haptics optional through device settings respect.
+- Do not fire heavy haptics on every keystroke.
+- Avoid overlapping haptics with rapid spam submissions.

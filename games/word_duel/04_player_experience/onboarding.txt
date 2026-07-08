@@ -1,0 +1,31 @@
+Onboarding
+
+Onboarding Principles
+- Show, then let the player do it.
+- Use one example pair and one example valid word list.
+- Keep total onboarding text short enough to skim.
+- Explain that players pick letters first and learn direction only when the round starts.
+
+Recommended Teaching Example
+- Player letters: C and T
+- Start C, End T
+- Valid: cat, connect, compact
+- Invalid: cup, tree
+
+Direction Teaching Note
+- Show that the same chosen pair could have been revealed the other way in another round.
+- Example: if direction flips, Start T / End C would require a different word set.
+
+Key Rules To Explain
+- Proper nouns are rejected.
+- Offensive words are rejected.
+- Plurals can be valid if they exist as accepted dictionary forms and fit the letters.
+- You may try again after an invalid submission if time remains.
+
+Practice Match Recommendation
+- First practice should use an easy pair such as C-T or B-R.
+- The practice reveal should clearly message which letter became the start and which became the end.
+- Consider non-ranked bot or guided state for the very first run if live concurrency is unavailable.
+
+Success Metric
+- Player should reach first valid submission quickly and understand why it worked.

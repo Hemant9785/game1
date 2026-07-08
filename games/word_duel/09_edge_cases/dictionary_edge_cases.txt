@@ -1,0 +1,17 @@
+Dictionary Edge Cases
+
+Cases To Handle
+- Primary dictionary unavailable
+- Fallback dictionary returns a different answer
+- Word exists but only as proper noun
+- Word exists only as abbreviation
+- Word marked archaic or offensive
+- API timeout after submission received in time
+
+Rules
+- Use fallback only through normalized policy layer.
+- Proper noun only entries remain rejected.
+- Abbreviation only entries remain rejected.
+- Offensive entries remain rejected even if dictionary recognizes them.
+- Pre-expiry submissions may complete validation after timer end.
+- If validation cannot complete in a fairness-safe time due to provider outage, cancel the round as no contest rather than guess.

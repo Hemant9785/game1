@@ -1,0 +1,20 @@
+Icons
+
+Required Icons
+- Matchmaking/search
+- Connection status
+- Confirm/locked
+- Warning/error
+- Rematch
+- Exit/back
+- Trophy or win marker
+- Draw marker
+
+Style Rules
+- Geometric and clean.
+- Consistent stroke or fill family.
+- Avoid overly playful iconography that conflicts with competitive tone.
+
+Usage Notes
+- Icons should support text, not replace it for critical states.
+- Connection quality icon should be understandable at small size.

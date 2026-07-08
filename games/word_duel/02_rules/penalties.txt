@@ -1,0 +1,33 @@
+Penalties
+
+Invalid Submission Response
+- Invalid words do not end the round.
+- The submitting player receives immediate reason-based feedback.
+
+Recommended Invalid Reasons
+- Wrong starting letter
+- Wrong ending letter
+- Not found in dictionary
+- Not allowed content
+- Already tried
+- Too short
+- Invalid characters
+
+Spam Control
+- Repeated submissions faster than a minimum interval should trigger soft rate limiting.
+- Recommended minimum submit interval: 400 to 600 ms.
+
+Escalating Penalty Model
+- First few invalid submissions: feedback only.
+- Continued high-frequency invalid spam: short temporary submit cooldown of 1 to 2 seconds.
+- Extreme bot-like behavior: flag account/session for anti-cheat review.
+
+Disconnect Penalty
+- A player who disconnects and fails to return within the grace window loses the round.
+
+Abandon Penalty
+- Manual quit counts as loss.
+- Repeated abuse-driven quits may reduce sportsmanship score if that system exists later.
+
+Penalty Design Goal
+- Prevent abuse without turning ordinary mistakes into harsh punishment.

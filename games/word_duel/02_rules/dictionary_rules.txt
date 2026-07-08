@@ -1,0 +1,33 @@
+Dictionary Rules
+
+Primary Dictionary Goal
+- Validate against a trusted English dictionary with coverage comparable to Oxford-style accepted English words.
+
+Accepted Source Strategy
+- Primary source should be a reputable dictionary API with stable definitions and part-of-speech metadata.
+- If Oxford is unavailable, fallback providers may be used if they support reliable existence checks and basic classification.
+- Fallback providers should be normalized behind one product rule layer so the player experience stays consistent.
+
+Dictionary Acceptance Policy
+- Accept common standard English words.
+- Accept common inflected forms if recognized by the source or approved normalization layer.
+- Reject words flagged as proper nouns, abbreviations, offensive content, or obsolete-only forms unless the product intentionally supports them later.
+
+Source Priority
+1. Primary authoritative dictionary.
+2. Secondary reputable dictionary provider.
+3. Cached prior validated results from authoritative sources.
+
+Caching Policy
+- Previously accepted safe words should be cached to reduce latency.
+- Previously rejected invalid-format words can be cached briefly.
+- Cached decisions must store source and rule reason for auditability.
+
+Consistency Requirement
+- The same word under the same letter pair should resolve the same way across devices.
+- Validation decisions must come from a single authoritative service layer, not per-device interpretation.
+
+If Sources Disagree
+- Prefer the primary source decision.
+- If only fallback is available, log disagreement-sensitive cases for later review.
+- Do not show players provider-level ambiguity; show one final rule result.

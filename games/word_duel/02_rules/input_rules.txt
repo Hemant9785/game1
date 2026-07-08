@@ -1,0 +1,32 @@
+Input Rules
+
+Allowed Input Method
+- Manual keyboard typing only in MVP.
+
+Paste Policy
+- Pasting text is not allowed in live gameplay.
+- The input field should block paste actions and clipboard insertion to preserve speed fairness.
+
+Character Rules
+- Only alphabetic English letters A-Z are accepted.
+- Input should be normalized to lowercase for validation while preserving preferred display style.
+- Spaces, hyphens, apostrophes, digits, emoji, punctuation, and accented characters are rejected in MVP.
+
+Length Rules
+- Minimum length: 2 letters.
+- Recommended practical minimum for normal balance: 3 letters, but 2-letter words may be accepted only if the dictionary source explicitly validates them and the content policy allows them.
+- Maximum length: 20 letters to avoid abuse and absurd payloads.
+
+Editing Behavior
+- Backspace and normal correction are allowed until submit.
+- Autocorrect should not be relied on and should ideally be disabled where possible.
+- Predictive suggestions may appear from the device keyboard, but game logic should not depend on them.
+
+Submission Frequency
+- A player may submit multiple attempts during a round.
+- Each attempt is validated independently.
+- Repeated invalid spam should be rate-limited as described in penalties.
+
+Display Rules
+- Input field should show current typed text clearly.
+- The required start and end letters must always remain visible while typing.

@@ -1,0 +1,18 @@
+XP
+
+XP Purpose
+- Give players a reason to continue after individual wins and losses.
+
+Suggested XP Model
+- Match completed: small base XP
+- Win: significant bonus XP
+- Draw: medium XP between win and loss
+- Fast win: small bonus
+- Clean round with no invalid attempts: small bonus
+
+XP Design Rules
+- XP should reward activity and skill without overshadowing the core duel.
+- Progress should feel steady in short sessions.
+
+Exploit Prevention
+- Rematch farming against the same opponent may need diminishing returns in future if abuse appears.

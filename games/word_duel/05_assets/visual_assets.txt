@@ -1,0 +1,29 @@
+Visual Assets
+
+MVP Asset Needs
+- App icon
+- Word Duel logo wordmark
+- Background treatment for lobby and gameplay
+- Letter tile or letter badge components
+- Result state badges for win, loss, draw
+- Simple loader/pending indicator
+
+Style Direction
+- Minimalist and competitive.
+- Clean typography with sharp contrast.
+- Subtle energy rather than fantasy ornament.
+
+Asset Priority
+- Gameplay readability assets first.
+- Brand polish assets second.
+
+Reusable Components
+- Start-letter badge
+- End-letter badge
+- Timer container
+- Status chips
+- Result medal or banner
+
+Production Guidance
+- Keep asset count low in MVP.
+- Prefer scalable assets and reusable shape language.

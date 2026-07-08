@@ -1,0 +1,15 @@
+Gameplay Edge Cases
+
+Cases To Handle
+- Player submits exactly as timer hits zero
+- Winner found while opponent is mid-typing
+- Both players never submit
+- Both players submit only invalid words
+- Auto-selected letter pair proves unwinnable
+- Opponent wins during your pending validation
+
+Rules
+- Pre-expiry received submissions remain eligible.
+- Round ends immediately after winner lock.
+- No valid words before expiry results in draw unless a pending pre-expiry submission later validates successfully.
+- If an auto-selected pair is confirmed impossible due to service mistake, round should be voided as no contest and excluded from ranked-like records.

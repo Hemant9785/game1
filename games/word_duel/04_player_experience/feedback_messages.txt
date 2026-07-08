@@ -1,0 +1,39 @@
+Feedback Messages
+
+Message Style
+- Short.
+- Precise.
+- Non-judgmental.
+- Immediate.
+
+Recommended Positive Messages
+- Valid word
+- You win
+- Opponent wins
+- Rematch accepted
+- Reconnected
+
+Recommended Negative Messages
+- Must start with C
+- Must end with T
+- Word not found
+- Proper nouns are not allowed
+- Offensive words are not allowed
+- Letters only
+- Already tried
+- Too short
+- Submit cooldown active
+- Connection lost
+
+Pending Messages
+- Checking word...
+- Waiting for final result...
+- Reconnecting...
+
+Draw Messages
+- Time up. No valid word found.
+- Time up. Final validation in progress.
+
+Voice And Tone
+- Never mock the player.
+- Avoid generic "invalid input" when a specific reason is available.

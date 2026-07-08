@@ -1,0 +1,24 @@
+Rematch Screen
+
+Purpose
+- Convert post-round momentum into another round with minimal friction.
+
+Required Elements
+- Rematch prompt
+- Both players’ accept states
+- Countdown timer for response
+- Exit option
+
+Behavior
+- If both players accept before timeout, start a new selection phase immediately.
+- If one player declines or times out, end the match session and return the remaining player to lobby or matchmaking.
+
+Recommended Timer
+- 12 seconds.
+
+Tone
+- Lightweight and confident.
+- Should feel like "go again" rather than a full reset.
+
+Fairness Note
+- If player roles affect which letter is start or end chooser, rotate or rebalance roles in the rematch.

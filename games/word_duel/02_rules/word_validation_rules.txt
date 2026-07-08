@@ -1,0 +1,34 @@
+Word Validation Rules
+
+A submitted word is valid only if all checks pass:
+- starts with the required first letter
+- ends with the required last letter
+- contains only allowed characters
+- exists in an accepted dictionary source
+- is not marked offensive, hateful, sexual, or abusive
+- is not a proper noun
+- is not an abbreviation, acronym, code, or random string
+
+Plural Words
+- Regular plural words are allowed if they exist as accepted dictionary entries or accepted inflections under the chosen dictionary policy.
+- Example: "cats" is valid only if the round ends with S and the dictionary accepts the form.
+
+Verb Forms And Inflections
+- Common inflected forms are allowed if the dictionary or validation policy recognizes them as valid English words.
+- Do not force only root forms.
+
+Proper Nouns
+- Rejected.
+- Capitalization should not be used to bypass this rule because input is normalized.
+
+Abbreviations And Acronyms
+- Rejected even if some dictionary sources list them.
+- Examples such as "ct", "apt", or institutional acronyms should fail if classified as abbreviation-only usage.
+
+Compound And Hyphenated Words
+- Hyphenated entries are rejected in MVP because punctuation is blocked.
+- Closed compounds without punctuation may be accepted if found in the dictionary.
+
+Duplicate Submission Rule
+- The same player may resubmit the same word, but it provides no advantage and should return a "already tried" response after the first invalid or losing use.
+- A word previously used by the opponent in the same round is still valid if submitted first by the player before round lock. After a winner is declared, no more submissions matter.

@@ -1,0 +1,19 @@
+Manual Test Cases
+
+Core Cases
+1. Start match, select letters, confirm that direction is hidden before round start, reveal occurs at round start, submit valid word, and confirm immediate win.
+2. Submit word with wrong start letter, verify exact feedback.
+3. Submit word with wrong end letter, verify exact feedback.
+4. Submit proper noun, verify rejection.
+5. Submit abbreviation, verify rejection.
+6. Submit offensive word candidate, verify rejection.
+7. Submit plural valid form, verify acceptance only when it fits the letters and dictionary policy.
+8. Let timer expire with no submissions, verify draw.
+9. Let timer expire while a pre-expiry submission is validating, verify pending state then final outcome.
+10. Accept rematch, verify fast restart.
+11. Repeat multiple rounds and verify direction assignment varies over time and only appears after reveal.
+
+UX Checks
+- Feedback is readable.
+- Timer is always visible.
+- Result state is unambiguous.

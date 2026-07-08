@@ -1,0 +1,18 @@
+Frustration Cases
+
+High-Risk Frustrations
+- "I typed a valid word and still lost."
+- "The game rejected a normal word."
+- "The letters were impossible."
+- "The timer ended while my word was still checking."
+- "My opponent disconnected and I still had to wait too long."
+
+Mitigation Rules
+- Always explain why a submission failed.
+- Preserve pending validation after timer end.
+- Use authoritative consistent dictionary logic.
+- Limit impossible letter pairs.
+- Keep disconnect resolution fast and visible.
+
+Product Requirement
+- The game should rarely leave the player unsure whether the result was fair.

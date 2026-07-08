@@ -1,0 +1,26 @@
+Anti-Cheat
+
+MVP Anti-Cheat Goals
+- Preserve fair timing competition.
+- Deter automated spam and client manipulation.
+
+Threats
+- Scripted rapid submissions
+- Modified client bypassing paste restriction
+- Spoofed timestamps
+- Word-list brute force automation
+
+MVP Protections
+- Server-authoritative timing and validation
+- Rate limiting on submission frequency
+- Reject impossible character payloads
+- Validate all final decisions server-side
+- Log suspicious submission speed patterns
+
+Signals For Review
+- Extremely low reaction times repeatedly
+- Repeated rapid invalid submissions at machine-like intervals
+- Identical behavior across many matches
+
+Product Stance
+- False positives are costly. MVP should focus on detection and moderation hooks rather than aggressive auto-bans.

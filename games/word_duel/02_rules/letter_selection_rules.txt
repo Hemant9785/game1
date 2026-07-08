@@ -1,0 +1,34 @@
+Letter Selection Rules
+
+Selection Model
+- Each player selects one letter during the pre-round phase.
+- The pre-round phase does not reveal direction.
+- At round start, the system randomly chooses one of two valid mappings:
+- Option 1: Player 1 letter is the required first letter and Player 2 letter is the required last letter.
+- Option 2: Player 2 letter is the required first letter and Player 1 letter is the required last letter.
+- Both players see the final mapping only after the round begins.
+
+Allowed Letters
+- Standard English alphabet A-Z.
+
+Selection Locking
+- Once both players confirm, letters are locked for the round.
+- If one player confirms first, their choice remains visible but cannot be changed unless the system explicitly allows an unlock countdown. MVP should not allow unlock to avoid ambiguity.
+- After both letters lock, direction is assigned server-side and must not be knowable to either player in advance.
+
+Timeout During Selection
+- Recommended selection timer: 10 seconds.
+- If a player does not choose in time, the system auto-assigns a letter using the fairness pool.
+
+Fairness Restrictions
+- Normal matchmaking should avoid impossible or extremely low-probability letter pairs.
+- Letters such as Q, X, Z, J may be limited by matchmaking weighting, not fully removed.
+- A blacklist of impossible pairings should be maintained if dictionary coverage proves them unwinnable.
+
+Visibility
+- Both selected letters should be shown before gameplay begins.
+- Before round start, the UI should show the two chosen letters without labeling them as start or end.
+- When gameplay begins, the final pair format should become explicit, for example: Start C / End T.
+
+Future Variation
+- Later modes may vary how letters are selected, but MVP should keep the letters visible and only hide direction.

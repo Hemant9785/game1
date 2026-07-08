@@ -1,0 +1,17 @@
+Fonts
+
+Font Requirements
+- Highly readable for fast scanning.
+- Distinct uppercase letterforms.
+- Good numeral clarity for countdown timer.
+
+Recommended Structure
+- One strong display font for title and large letters.
+- One simple UI font for controls and feedback.
+
+Usage Rules
+- Required letters should be visually bold and unmistakable.
+- Feedback text should avoid stylized forms that slow reading.
+
+Localization Consideration
+- Even if MVP is English-only, choose fonts that will not block future expansion.

@@ -1,0 +1,17 @@
+Achievements
+
+Achievement Goals
+- Encourage mastery and variety.
+
+Suggested MVP Achievements
+- First win
+- Win 3 rounds in a row
+- Submit a valid word in under 5 seconds
+- Win without any invalid attempts
+- Play 10 matches
+- Force a draw survival round
+- Win with a 7+ letter word
+
+Rules
+- Achievements should be easy to understand from their titles.
+- Do not encourage toxic stalling or disconnect behavior.

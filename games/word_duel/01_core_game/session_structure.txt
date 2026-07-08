@@ -1,0 +1,31 @@
+Session Structure
+
+Recommended Session Shape
+- A session should support one quick duel or multiple rematches without extra navigation.
+
+Single Match Structure
+- Lobby
+- Opponent matched / ready state
+- Letter selection phase
+- Direction reveal and countdown
+- 60-second gameplay phase
+- Result phase
+- Rematch prompt
+
+Expected Time
+- Fast match: 30 to 90 seconds total including screens.
+- Extended session with rematches: 3 to 10 minutes.
+
+Round Count
+- MVP should treat each round as a self-contained competitive event.
+- A rematch starts a fresh round with new letters and a reset timer.
+- No best-of-three requirement in MVP, but stats may track multi-round streaks.
+
+Player Drop-In Expectations
+- Players should be able to leave after any result screen without penalty beyond counting the match outcome.
+- The game should not require long commitment.
+
+Session UX Priorities
+- Minimal waiting between phases.
+- Clear transitions so players always know the current match state.
+- No hidden background validation that leaves the player uncertain.

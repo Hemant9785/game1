@@ -1,0 +1,14 @@
+Network Edge Cases
+
+Cases To Handle
+- Temporary packet delay
+- Duplicate submission event due to retry
+- Client reconnects to stale state
+- Dictionary service is slower than match state service
+- Match result event arrives before local invalid feedback event
+
+Rules
+- Deduplicate submissions by request identifier.
+- Latest authoritative snapshot overrides stale local assumptions.
+- Result event has higher priority than late per-attempt feedback.
+- Keep player messaging consistent when services resolve in different order.

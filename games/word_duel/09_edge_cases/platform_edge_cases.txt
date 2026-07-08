@@ -1,0 +1,14 @@
+Platform Edge Cases
+
+Android-Relevant Cases
+- App backgrounded during active round
+- Incoming call or system interruption
+- Keyboard covers key gameplay UI
+- Device rotation during active round
+- Low-memory process recreation
+
+Required Product Behavior
+- Backgrounding during active round should not pause the match.
+- On return, player should reconnect to latest authoritative state.
+- Rotation should preserve visible match state if supported, or the app should lock orientation during active gameplay if that is the chosen product behavior.
+- If the process is killed, reconnect rules apply on relaunch.

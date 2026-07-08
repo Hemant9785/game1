@@ -1,0 +1,33 @@
+Scoring
+
+MVP Round Scoring
+- Primary outcome is binary: win, loss, or draw.
+- Score should be simple enough to understand at a glance.
+
+Recommended Visible Score Components
+- Round result
+- Time to win
+- Winning word length
+- Personal streak if applicable
+
+Suggested Internal Point Model
+- Win: 1 round win
+- Loss: 0 round win
+- Draw: 0.5 draw credit for stat tracking only
+
+Optional XP-Oriented Bonus Signals
+- Faster win grants slightly higher XP.
+- Longer valid word grants small bonus XP.
+- Clean win without invalid attempts grants bonus XP.
+
+Scoring Restraints
+- Do not make obscure word complexity the main scoring factor in MVP.
+- The winner should be the first valid submission, not the highest scoring word.
+- Any extra point system must remain secondary to race clarity.
+
+Result Screen Data
+- Winner name
+- Winning word
+- Round duration
+- Each player’s valid/invalid submission count
+- XP gained if progression is enabled

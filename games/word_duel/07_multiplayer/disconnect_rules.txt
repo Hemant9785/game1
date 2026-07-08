@@ -1,0 +1,20 @@
+Disconnect Rules
+
+During Letter Selection
+- If one player disconnects and fails to reconnect within the selection grace window, the remaining player wins by opponent disconnect or receives no-contest depending on product choice.
+- Recommended MVP choice: award win to remaining player to avoid wasted waiting.
+
+During Active Round
+- If one player disconnects, start reconnect grace countdown.
+- If they do not return in time, they lose.
+- If the remaining player already has a valid pending submission, validate it normally and award win if successful.
+
+During Pending Validation
+- If a player disconnects after submission but before result, the authoritative validation still completes.
+- Disconnect does not cancel an already received submission.
+
+During Result Or Rematch
+- Disconnect counts as declining rematch if no return before timer expiry.
+
+Messaging
+- Explicitly separate temporary reconnecting from final disconnected loss.

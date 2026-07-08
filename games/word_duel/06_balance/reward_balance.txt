@@ -1,0 +1,20 @@
+Reward Balance
+
+Reward Goals
+- Encourage rematches and continued play.
+- Reward improvement, not only outright wins.
+
+MVP Reward Principles
+- Winning should matter most.
+- Losing should still provide small participation XP to reduce churn.
+- Clean play and speed can provide small bonuses.
+
+Avoid
+- Large rewards for obscure long words that distort the simple race objective.
+- Punishing zero-reward losses that make the game feel harsh.
+
+Suggested Reward Signals
+- Win bonus
+- First valid submission bonus
+- Fast finish bonus
+- Daily play bonus

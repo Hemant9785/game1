@@ -1,0 +1,27 @@
+Letter Selection Screen
+
+Purpose
+- Capture each player's chosen letter and prepare both players for the hidden-direction reveal before the timer begins.
+
+Required Elements
+- Alphabet selection control
+- Own chosen letter highlight
+- Opponent chosen letter state
+- Selection timer
+- Confirmed/locked status
+
+Behavior
+- The screen must clearly show which letter belongs to which player, but it must not label either one as the starting or ending letter yet.
+- After both letters are locked, transition quickly into a reveal and countdown.
+
+Auto-Assignment Rule
+- If a player does not choose before timeout, auto-assign a fairness-weighted letter and show that the system selected it.
+
+UX Notes
+- Highlight risky letters visually only if doing so does not bias or shame the player.
+- The chosen pair should be previewed together before round start as two owned letters, not as start/end roles.
+- The round-start reveal should make the assigned direction obvious in one glance.
+
+Failure States
+- Opponent disconnects during selection: show waiting state, then apply disconnect rules.
+- Validation that a pair is impossible should happen instantly if the system maintains a blocked pair list.

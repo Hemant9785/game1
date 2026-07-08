@@ -1,0 +1,27 @@
+Result Screen
+
+Purpose
+- Resolve emotion quickly and set up the next action.
+
+Required Elements
+- Win, loss, or draw headline
+- Winning word or draw explanation
+- Round letters
+- Round duration
+- XP/stats gain if enabled
+- Primary rematch action
+- Secondary exit action
+
+Tone
+- Win should feel crisp and rewarding.
+- Loss should feel firm but not punishing.
+- Draw should feel neutral and informative.
+
+Content Rules
+- If the player lost, show the opponent’s winning word.
+- If the player submitted a final invalid word, the last invalid reason may appear in a small recap.
+- If no valid word was found, say that clearly rather than implying a system error.
+
+Timing
+- Result should appear immediately once the winner is locked or all pending validations resolve.
+- Avoid long celebration sequences that delay rematch.

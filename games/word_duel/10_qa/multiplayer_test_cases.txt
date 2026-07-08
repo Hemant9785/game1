@@ -1,0 +1,17 @@
+Multiplayer Test Cases
+
+Core Multiplayer Cases
+1. Both players connect normally and complete a round.
+2. Both players see the same revealed direction at the same round-start moment.
+3. One player disconnects during letter selection and fails to return.
+4. One player disconnects during active round and reconnects within grace window.
+5. One player disconnects during active round and does not return.
+6. Both players submit valid words nearly simultaneously.
+7. One player submits invalid spam rapidly; confirm rate limiting.
+8. Rematch accepted by both players.
+9. Rematch accepted by only one player.
+
+Verification Focus
+- Authoritative winner is consistent on both devices.
+- State transitions match the documented match states.
+- Reconnect restores the correct timer and letters.

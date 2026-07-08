@@ -1,0 +1,17 @@
+Rewards
+
+Reward Types
+- XP
+- Cosmetic badges
+- Profile accents
+- Achievement markers
+
+MVP Reward Philosophy
+- Keep rewards lightweight and non-pay-to-win.
+- Use cosmetics and status markers rather than gameplay advantages.
+
+When Rewards Trigger
+- Level up
+- Achievement earned
+- Daily return milestone
+- Streak milestone

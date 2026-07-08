@@ -1,0 +1,36 @@
+Concept
+
+Word Duel is a competitive word sprint built around two player-selected constraints:
+- one required starting letter
+- one required ending letter
+
+Constraint Generation
+- Each player selects one letter before the round.
+- The game then randomly decides which selected letter is the required start and which is the required end.
+- This hidden-direction reveal adds suspense without changing the core validation rule.
+
+The tension comes from three simultaneous pressures:
+- speed: submit before the opponent
+- accuracy: invalid words do not win
+- adaptability: the letter pair changes each round
+
+Player Fantasy
+- The player should feel clever, quick, and slightly under pressure.
+- Winning should feel earned through recall and speed, not randomness alone.
+
+Design Identity
+- Minimalist, readable, decisive.
+- Short rounds with immediate emotional payoff.
+- Skill is primarily vocabulary recall plus composure under time pressure.
+
+Why The Concept Works
+- Rules are understandable in seconds.
+- Inputs are simple enough for mobile.
+- Every round creates a new micro-puzzle.
+- Multiplayer tension is naturally high because only one correct answer is needed.
+
+Core Success Criteria
+- A new player understands the goal in under 30 seconds.
+- Match resolution is usually under 20 seconds even though the timer allows 60.
+- Invalid submission handling is clear and not frustrating.
+- Rematch rate is high because rounds are short and outcomes are decisive.

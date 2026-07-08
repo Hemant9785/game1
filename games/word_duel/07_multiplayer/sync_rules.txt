@@ -1,0 +1,23 @@
+Sync Rules
+
+Authority
+- Match state, direction assignment, timer start, timer end, submission ordering, and result are server authoritative.
+
+Client Responsibilities
+- Render latest state promptly.
+- Predict minimally for responsiveness.
+- Never present a win as final before authoritative confirmation.
+
+Timer Sync
+- Clients should receive a round start timestamp, revealed direction payload, and countdown reference.
+- UI timer may interpolate locally but must resync if drift is detected.
+
+Submission Sync
+- A submitted word enters local pending state immediately.
+- Final accepted or rejected status comes from the authoritative service.
+
+State Repair
+- If a client misses events, it should request the latest full match snapshot and reconcile.
+
+Bandwidth Priority
+- Prioritize state changes and result messages over cosmetic telemetry.

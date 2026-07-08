@@ -1,0 +1,25 @@
+Simultaneous Submit Rules
+
+Problem
+- Both players may submit valid words nearly at the same time.
+
+Resolution Principle
+- Use authoritative server receipt time after basic payload acceptance.
+
+Processing Order
+1. Receive submission payload.
+2. Confirm it was received before round expiry.
+3. Validate format and policy.
+4. Validate dictionary acceptance.
+5. Compare with competing valid submissions by authoritative ordering rules.
+
+Winner Rule
+- The earliest received fully valid submission wins.
+
+Near-Simultaneous Rule
+- If two submissions arrive within the tie window, compare their receipt order deterministically.
+- If exact identical receipt ordering cannot be distinguished due to infrastructure granularity, use stable secondary ordering such as server sequence number.
+- Do not use random selection.
+
+Player Messaging
+- Losing player should see that the opponent submitted first, not that their word was wrong if it was also valid but later.

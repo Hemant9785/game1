@@ -1,0 +1,31 @@
+Target Player
+
+Primary Audience
+- Mobile players aged roughly 13+ who enjoy fast puzzle, trivia, or word games.
+- Players comfortable with light competition and quick rematches.
+
+Player Traits
+- Enjoys testing vocabulary without wanting long study-heavy gameplay.
+- Prefers sessions under 5 minutes.
+- Values fairness and clarity more than deep complexity.
+
+Primary Motivations
+- Beat another player in real time.
+- Feel smart through fast word recall.
+- Improve personal speed and consistency.
+- Build a visible profile history through wins, streaks, and levels.
+
+Secondary Audience
+- Casual players who like simple games with low onboarding friction.
+- Friends looking for short live challenges.
+
+Potential Friction
+- Very weak typists may feel disadvantaged.
+- Players with limited English vocabulary may churn if letters feel unfair.
+- Highly competitive players may demand stronger anti-cheat and ranked integrity.
+
+Product Response
+- Keep rules predictable.
+- Provide strong invalid-input feedback.
+- Avoid impossible letter pairs in normal matchmaking.
+- Add progression rewards that acknowledge improvement, not only wins.

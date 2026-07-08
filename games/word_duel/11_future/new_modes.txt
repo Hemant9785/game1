@@ -1,0 +1,12 @@
+New Modes
+
+Potential Modes
+- Best-of-three duel
+- Endless survival against rotating letter pairs
+- Daily challenge with fixed pair for all players
+- Casual room code mode for friends
+- Theme mode using category-limited words
+
+Selection Criteria
+- New modes should preserve the instant readability of the core rule set.
+- Avoid modes that require heavy explanation unless they add clear value.

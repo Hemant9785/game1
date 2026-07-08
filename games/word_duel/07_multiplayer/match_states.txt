@@ -1,0 +1,32 @@
+Match States
+
+Recommended Authoritative Match State Flow
+- matchmaking
+- matched
+- ready_check
+- letter_selection
+- direction_reveal
+- countdown
+- active_round
+- pending_validation
+- round_resolved
+- rematch_pending
+- closed
+
+State Definitions
+- matchmaking: player is searching or waiting for opponent
+- matched: two players paired but not yet confirmed
+- ready_check: optional pre-start confirmation
+- letter_selection: players choose letters
+- direction_reveal: server assigns start/end direction and publishes the revealed condition
+- countdown: synchronized pre-round countdown
+- active_round: timer running and submissions allowed
+- pending_validation: timer expired or winner candidate received, awaiting final validation
+- round_resolved: outcome locked
+- rematch_pending: waiting for both rematch decisions
+- closed: session ended
+
+State Rules
+- Only one authoritative state exists at a time.
+- Clients may show transitional UI but must reconcile to server state.
+- Once round_resolved is entered, outcome cannot change.

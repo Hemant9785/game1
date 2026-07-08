@@ -1,0 +1,23 @@
+Reconnect Rules
+
+Reconnect Goal
+- Allow brief network drops without unfair instant losses.
+
+Grace Window
+- Recommended reconnect grace window: 10 seconds during active round.
+- Recommended reconnect grace window: 15 seconds during non-active states such as rematch or lobby.
+
+Behavior During Reconnect
+- The disconnected player sees reconnecting status if possible.
+- The connected opponent sees that the other player is reconnecting.
+- The round timer continues during active round; the game does not pause for one player.
+
+If Reconnect Succeeds
+- Player receives the latest authoritative snapshot.
+- Input can resume if the round is still active.
+
+If Reconnect Fails
+- Apply disconnect loss rules.
+
+Fairness Note
+- Reconnecting must not replay expired time or undo a winner already locked.

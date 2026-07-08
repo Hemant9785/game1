@@ -1,0 +1,19 @@
+Theme
+
+Theme Direction
+- Fast, modern, focused.
+- Minimalist with high-contrast surfaces and strong accent color.
+
+Emotional Targets
+- Lobby: anticipation
+- Gameplay: pressure and clarity
+- Result: decisive resolution
+
+Color Guidance
+- Use a primary competitive accent for active states.
+- Use distinct success, error, and neutral result colors.
+- Avoid low-contrast decorative gradients behind the input area.
+
+Shape Language
+- Crisp cards, rounded rectangles, and letter badges.
+- Avoid visual clutter and excessive bevel or skeuomorphism.

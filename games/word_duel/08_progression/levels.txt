@@ -1,0 +1,16 @@
+Levels
+
+Level Purpose
+- Provide long-term progression and player identity.
+
+Recommended Level Structure
+- Linear early levels with fast visible progress.
+- Gradually increasing XP thresholds later.
+
+Visible Rewards
+- Profile frame variants
+- Nameplate accents
+- Minor cosmetic unlocks
+
+Design Rule
+- Levels should not alter competitive word validation or give gameplay power in MVP.

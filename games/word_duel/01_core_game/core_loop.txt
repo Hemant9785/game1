@@ -1,0 +1,35 @@
+Core Loop
+
+1. Enter lobby or receive match.
+2. See opponent presence and readiness state.
+3. Each player selects one letter during the designated selection phase.
+4. System locks both letters, randomly assigns direction, reveals the final start/end condition, and starts the round timer.
+5. Players type and submit candidate words.
+6. Server validates format, policy, and dictionary acceptance.
+7. First valid accepted submission wins immediately.
+8. Show result, summary, and rematch option.
+9. Repeat.
+
+Moment-To-Moment Gameplay Loop
+- Read the letter pair.
+- Read the revealed direction for the pair.
+- Mentally search for a valid word.
+- Type quickly.
+- Decide whether to submit early or keep searching for a safer word.
+
+Retention Loop
+- Complete short rounds.
+- Gain XP and stats.
+- Chase streaks and achievements.
+- Accept rematch because turnaround is fast.
+
+Failure Loop
+- Submit invalid word.
+- Receive precise reason.
+- Continue round if time remains.
+- Learn rule boundaries and try again.
+
+Desired Loop Timing
+- Matchmaking to round start: under 15 seconds in healthy conditions.
+- Letter selection to gameplay: under 5 seconds.
+- Result to rematch decision: under 8 seconds.

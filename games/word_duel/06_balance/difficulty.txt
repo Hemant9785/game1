@@ -1,0 +1,22 @@
+Difficulty
+
+Difficulty Sources
+- Letter rarity
+- Word familiarity
+- Typing speed requirement
+- Validation strictness
+
+MVP Difficulty Target
+- Most rounds should feel solvable by ordinary English speakers within 60 seconds.
+- Not every player should succeed every round, but unwinnable rounds should be rare.
+
+Difficulty Controls
+- Weighted letter selection support
+- Impossible-pair blacklist
+- Tutorial with easy pairs
+- Gradual exposure to harder letters
+
+Bad Difficulty
+- Players frequently timing out because pairs are too obscure.
+- Players losing because dictionary acceptance is inconsistent.
+- Rounds decided mostly by random letter cruelty rather than word recall skill.

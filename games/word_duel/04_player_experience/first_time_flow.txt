@@ -1,0 +1,27 @@
+First-Time Flow
+
+Goal
+- Get a new player into a meaningful first duel in under 2 minutes.
+
+Recommended Flow
+1. Launch game.
+2. See one-screen explanation that each player picks one letter and the game reveals start/end direction at round start.
+3. Complete a short guided practice or visual sample.
+4. Enter first live or bot-backed onboarding match.
+5. See result and rematch prompt.
+
+First Session Priorities
+- Teach rule pattern before teaching competition depth.
+- Prevent impossible letters in the very first experience.
+- Keep wording plain and low jargon.
+
+Must-Teach Concepts
+- Your word must start with one revealed letter and end with the other revealed letter.
+- The start/end direction is hidden until the round begins.
+- Fastest valid word wins.
+- Invalid words do not end the round.
+
+Avoid In First-Time Flow
+- Long account setup.
+- Deep progression menus.
+- Too many exceptions up front.

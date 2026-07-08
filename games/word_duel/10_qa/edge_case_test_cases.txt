@@ -1,0 +1,18 @@
+Edge Case Test Cases
+
+Cases
+1. Submit at the exact final second.
+2. Timer reaches zero before dictionary response returns.
+3. Duplicate network delivery of same submission.
+4. Opponent wins while local client still shows checking state.
+5. Auto-assigned letters create no valid solution due to source bug.
+6. App goes to background during active round.
+7. App resumes after temporary network loss.
+8. Keyboard paste attempt during gameplay.
+9. Device rotation during selection and during active round.
+10. Match cancelled because validation provider is unavailable too long.
+
+Expected Outcome
+- No silent failures.
+- No contradictory winner displays.
+- No implementation-specific leak of backend error details to players.

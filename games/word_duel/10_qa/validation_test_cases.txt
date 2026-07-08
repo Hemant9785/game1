@@ -1,0 +1,16 @@
+Validation Test Cases
+
+Dictionary And Rule Cases
+1. Validate common word accepted by primary source.
+2. Validate common word accepted by fallback source when primary is unavailable.
+3. Validate proper noun only entry is rejected.
+4. Validate abbreviation only entry is rejected.
+5. Validate offensive entry is rejected.
+6. Validate closed compound word acceptance if dictionary-approved.
+7. Validate hyphenated word rejection in MVP.
+8. Validate duplicate same-word resubmission returns already-tried message.
+9. Validate maximum length enforcement.
+10. Validate non-letter character rejection.
+
+Consistency Checks
+- Same word under same pair produces same result across repeated tests.

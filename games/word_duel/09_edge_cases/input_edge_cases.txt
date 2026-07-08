@@ -1,0 +1,16 @@
+Input Edge Cases
+
+Cases To Handle
+- Empty submit
+- Single-letter submit
+- Whitespace-only input
+- Mixed letters and punctuation
+- Very long strings
+- Repeated rapid submit taps
+- Keyboard autocorrect changing the word after player intent
+- Non-English characters
+
+Required Behavior
+- Reject impossible formats immediately client-side where safe.
+- Still validate server-side for trust.
+- Keep rejection reasons specific.

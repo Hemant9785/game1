@@ -1,0 +1,22 @@
+Timer Balance
+
+MVP Timer
+- 60 seconds per round.
+
+Why 60 Seconds
+- Long enough for search and retry.
+- Short enough to preserve urgency.
+- Fits mobile quick-session expectations.
+
+Signs Timer Is Too Short
+- High draw rate from ordinary pairs.
+- Players often submit only once.
+- New players churn after repeated time pressure failure.
+
+Signs Timer Is Too Long
+- Too many rounds feel decided early but drag to completion because no one submits.
+- Low tension in mid-round.
+
+Future Tuning
+- Event modes may use 30 or 45 seconds.
+- Ranked mode may keep 60 seconds for consistency.

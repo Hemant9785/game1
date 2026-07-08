@@ -1,0 +1,27 @@
+Error States
+
+Error Handling Principles
+- Tell the player what happened.
+- Tell the player whether they can recover now.
+- Avoid technical jargon unless no better wording exists.
+
+Common Error States
+- Network temporarily unavailable
+- Match service unavailable
+- Dictionary lookup timed out
+- Opponent disconnected
+- Submission cooldown active
+- Validation service delayed
+
+Required Player Guidance
+- Retry now
+- Wait while reconnecting
+- Return to lobby
+- Round decided due to disconnect
+
+Dictionary Delay Messaging
+- If dictionary validation is slow, show a short pending state instead of forcing players to wonder if the tap failed.
+- If the delay exceeds an acceptable threshold, show "Still checking word" rather than surfacing API details.
+
+Fatal Errors
+- If the round cannot be resolved fairly, cancel the round and mark no contest rather than assigning a random loss.

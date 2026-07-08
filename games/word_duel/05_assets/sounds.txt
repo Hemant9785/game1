@@ -1,0 +1,23 @@
+Sounds
+
+Sound Goals
+- Add urgency and outcome clarity.
+
+Required Sound Events
+- Match found
+- Countdown start
+- Invalid submit
+- Valid submit accepted
+- Win
+- Loss
+- Draw
+- Opponent disconnected
+
+Audio Style
+- Clean, synthetic, modern.
+- Short and low-latency.
+- No long musical phrases in core loop.
+
+Mixing Rules
+- Timer and feedback sounds must not mask each other.
+- Win/lose stings should be short enough to support quick rematch flow.

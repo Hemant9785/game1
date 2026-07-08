@@ -1,0 +1,28 @@
+Timing Rules
+
+Round Timer
+- Standard round timer is 60 seconds.
+
+Round Start
+- Timer begins only after both letters are locked, direction is assigned, and both players receive the gameplay start event.
+- A short synchronized countdown such as 3, 2, 1 is recommended for fairness.
+
+Submission Timing
+- A submission counts only when received by the authoritative match service.
+- Client-side button press time is informative but not decisive.
+
+Timer Expiry
+- When the timer hits zero, no new submissions should be accepted unless they were already received before expiry.
+- Validation may continue for submissions received before expiry.
+
+Timer Ends During Validation
+- If a submission was received before timer expiry, it remains eligible even if dictionary validation completes after expiry.
+- If that submission passes validation and no earlier valid submission exists, it can still win the round.
+
+Last-Second Input Rule
+- Client should visually communicate when a submitted word is pending validation after time expires.
+- Players must not assume a draw until pending validations resolve.
+
+Selection Phase Timing
+- Recommended letter selection timer: 10 seconds.
+- Recommended rematch decision timer: 12 seconds.

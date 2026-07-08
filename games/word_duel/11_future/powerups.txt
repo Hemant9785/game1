@@ -1,0 +1,14 @@
+Powerups
+
+Future Powerup Ideas
+- One-time hint for a possible word length range
+- Brief extra 5-second extension in casual modes
+- Letter reroll before round start
+- Shield against one invalid-attempt cooldown
+
+Design Warning
+- Powerups can easily damage competitive fairness.
+- If added, they should likely remain outside ranked play.
+
+MVP Decision
+- No powerups in MVP.

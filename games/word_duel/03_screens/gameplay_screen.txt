@@ -1,0 +1,34 @@
+Gameplay Screen
+
+Purpose
+- Support fast thinking, fast typing, and unambiguous validation feedback.
+
+Required Elements
+- Large visible start and end letters
+- Countdown timer
+- Text input field
+- Submit button
+- Recent feedback area
+- Match status indicator
+
+Layout Priorities
+- The direction reveal at round start should be visually clear and short enough not to slow the match.
+- Letters and timer should stay visible at all times.
+- Input and submit controls should be reachable one-handed on common Android devices.
+- Feedback should appear near the input, not in a detached corner.
+
+Validation Feedback
+- Positive: clear but restrained so the round end animation can carry the impact.
+- Negative: short, exact, and recoverable.
+
+Pending State
+- After submit, show "checking" or equivalent until the result is known.
+- If timer expires while checking, preserve a pending-result state rather than immediately showing draw.
+
+Opponent Information
+- Show opponent name/status.
+- Do not show opponent’s live typed text or candidate words.
+- Optional subtle indicator may show that the opponent submitted something, but only if it does not create confusion.
+
+Performance Requirement
+- Input should feel instant with no UI hitching during network validation.

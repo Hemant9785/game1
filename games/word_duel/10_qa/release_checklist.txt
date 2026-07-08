@@ -1,0 +1,27 @@
+Release Checklist
+
+Gameplay Integrity
+- Rules match documentation.
+- Dictionary policy is consistent across services.
+- Impossible-pair safeguards are active.
+- Direction reveal is hidden before round start and synchronized correctly at round start.
+- Simultaneous submit resolution is deterministic.
+
+UX Readiness
+- All critical messages are present and readable.
+- Result, draw, and disconnect states are unambiguous.
+- Rematch flow is fast and stable.
+
+Technical Readiness
+- Validation timeouts handled safely.
+- Reconnect and disconnect logic tested.
+- Duplicate submission protection tested.
+- Telemetry captures key fairness and failure events.
+
+Content Safety
+- Offensive word filter active.
+- Proper noun and abbreviation policy verified.
+
+Store Readiness
+- App icon and screenshots align with actual gameplay.
+- Privacy disclosures reflect multiplayer and dictionary service behavior.
