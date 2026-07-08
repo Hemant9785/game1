@@ -3,6 +3,8 @@ package com.wordduel.app.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.wordduel.app.data.profile.LocalProfileState
+import com.wordduel.app.data.profile.ProfilePreferencesRepository
 import com.wordduel.app.data.repository.WordValidationRepository
 import com.wordduel.app.data.session.FirebaseSessionRepository
 import com.wordduel.app.data.session.PlayerProfile
@@ -21,7 +23,8 @@ import kotlin.math.max
 
 class WordDuelViewModel(
     private val repository: WordValidationRepository,
-    private val sessionRepository: SessionRepository
+    private val sessionRepository: SessionRepository,
+    private val profilePreferencesRepository: ProfilePreferencesRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(WordDuelUiState())
@@ -29,6 +32,10 @@ class WordDuelViewModel(
 
     private var sessionObserverJob: Job? = null
     private var countdownJob: Job? = null
+
+    init {
+        observeLocalProfile()
+    }
 
     fun updateProfileName(name: String) {
         _uiState.update { it.copy(profileNameDraft = name, sessionError = null) }
@@ -51,39 +58,96 @@ class WordDuelViewModel(
         _uiState.update { it.copy(wordDraft = value, sessionError = null) }
     }
 
-    fun saveProfile() {
+    fun nextOnboardingPage() {
+        val current = _uiState.value.onboardingPage
+        if (current < 2) {
+            _uiState.update { it.copy(onboardingPage = current + 1) }
+        } else {
+            saveProfile(fromOnboarding = true)
+        }
+    }
+
+    fun previousOnboardingPage() {
+        _uiState.update { it.copy(onboardingPage = max(0, it.onboardingPage - 1)) }
+    }
+
+    fun skipOnboarding() {
+        _uiState.update {
+            it.copy(
+                onboardingPage = 2,
+                screen = AppScreen.Onboarding,
+                sessionError = null
+            )
+        }
+    }
+
+    fun saveProfile(fromOnboarding: Boolean = false) {
         val displayName = _uiState.value.profileNameDraft.trim()
         if (displayName.isBlank()) {
-            _uiState.update { it.copy(sessionError = "Choose a username first.") }
+            _uiState.update { it.copy(sessionError = "Choose a player name first.") }
             return
         }
         viewModelScope.launch {
-            runCatching { sessionRepository.saveProfile(displayName) }
-                .onSuccess { profile ->
-                    _uiState.update {
-                        it.copy(
-                            savedProfile = profile,
-                            infoBanner = "Profile saved. Create a room or join your partner with a code.",
-                            sessionError = null
-                        )
-                    }
+            _uiState.update { it.copy(isBusy = true, sessionError = null) }
+            runCatching {
+                profilePreferencesRepository.savePlayerName(displayName)
+                sessionRepository.saveProfile(displayName)
+            }.onSuccess { profile ->
+                _uiState.update {
+                    it.copy(
+                        savedProfile = profile,
+                        screen = AppScreen.Home,
+                        infoBanner = "Welcome back, ${profile.displayName}.",
+                        sessionError = null,
+                        isBusy = false,
+                        isInitializing = false
+                    )
                 }
-                .onFailure { error ->
-                    _uiState.update { it.copy(sessionError = error.message ?: "Unable to save profile.") }
+            }.onFailure { error ->
+                _uiState.update {
+                    it.copy(
+                        sessionError = error.message ?: "Unable to save profile.",
+                        isBusy = false,
+                        screen = if (fromOnboarding) AppScreen.Onboarding else it.screen
+                    )
                 }
+            }
         }
+    }
+
+    fun openCreateGame() {
+        _uiState.update { it.copy(screen = AppScreen.CreateGame, sessionError = null) }
+    }
+
+    fun openJoinGame() {
+        _uiState.update { it.copy(screen = AppScreen.JoinGame, sessionError = null) }
+    }
+
+    fun openSettings() {
+        _uiState.update { it.copy(screen = AppScreen.Settings, sessionError = null) }
+    }
+
+    fun backToHome() {
+        _uiState.update { it.copy(screen = AppScreen.Home, sessionError = null) }
     }
 
     fun createSession() {
         val profile = requireProfile() ?: return
         val timer = _uiState.value.timerDraft.toIntOrNull()?.coerceIn(30, 180) ?: 60
         viewModelScope.launch {
+            _uiState.update { it.copy(isBusy = true, sessionError = null) }
             runCatching { sessionRepository.createSession(profile, timer) }
                 .onSuccess { snapshot ->
+                    _uiState.update { it.copy(isBusy = false) }
                     observeSession(snapshot.sessionCode)
                 }
                 .onFailure { error ->
-                    _uiState.update { it.copy(sessionError = error.message ?: "Unable to create a session.") }
+                    _uiState.update {
+                        it.copy(
+                            isBusy = false,
+                            sessionError = error.message ?: "Unable to create a session."
+                        )
+                    }
                 }
         }
     }
@@ -96,10 +160,19 @@ class WordDuelViewModel(
             return
         }
         viewModelScope.launch {
+            _uiState.update { it.copy(isBusy = true, sessionError = null) }
             sessionRepository.joinSession(code, profile)
-                .onSuccess { snapshot -> observeSession(snapshot.sessionCode) }
+                .onSuccess { snapshot ->
+                    _uiState.update { it.copy(isBusy = false) }
+                    observeSession(snapshot.sessionCode)
+                }
                 .onFailure { error ->
-                    _uiState.update { it.copy(sessionError = error.message ?: "Unable to join session.") }
+                    _uiState.update {
+                        it.copy(
+                            isBusy = false,
+                            sessionError = error.message ?: "Unable to join session."
+                        )
+                    }
                 }
         }
     }
@@ -173,6 +246,100 @@ class WordDuelViewModel(
         }
     }
 
+    fun resetOnboarding() {
+        viewModelScope.launch {
+            profilePreferencesRepository.resetOnboarding()
+            _uiState.update {
+                it.copy(
+                    screen = AppScreen.Onboarding,
+                    onboardingPage = 0,
+                    infoBanner = "Onboarding reset. You can walk through the intro again."
+                )
+            }
+        }
+    }
+
+    fun resetLocalProfile() {
+        viewModelScope.launch {
+            sessionObserverJob?.cancel()
+            countdownJob?.cancel()
+            runCatching {
+                profilePreferencesRepository.clearProfile()
+                sessionRepository.signOut()
+            }.onSuccess {
+                _uiState.value = WordDuelUiState(
+                    screen = AppScreen.Onboarding,
+                    onboardingPage = 0,
+                    isInitializing = false,
+                    infoBanner = "Profile cleared. Start fresh."
+                )
+            }.onFailure { error ->
+                _uiState.update { it.copy(sessionError = error.message ?: "Unable to clear profile.") }
+            }
+        }
+    }
+
+    private fun observeLocalProfile() {
+        viewModelScope.launch {
+            profilePreferencesRepository.profileState.collectLatest { localState ->
+                hydrateFromLocalState(localState)
+            }
+        }
+    }
+
+    private suspend fun hydrateFromLocalState(localState: LocalProfileState) {
+        if (localState.playerName.isNullOrBlank()) {
+            _uiState.update {
+                it.copy(
+                    isInitializing = false,
+                    isBusy = false,
+                    profileNameDraft = "",
+                    savedProfile = null,
+                    onboardingPage = if (localState.hasCompletedOnboarding) 2 else 0,
+                    screen = AppScreen.Onboarding
+                )
+            }
+            return
+        }
+
+        if (_uiState.value.savedProfile?.displayName == localState.playerName && !_uiState.value.isInitializing) {
+            return
+        }
+
+        _uiState.update {
+            it.copy(
+                isInitializing = true,
+                isBusy = true,
+                profileNameDraft = localState.playerName
+            )
+        }
+
+        runCatching { sessionRepository.saveProfile(localState.playerName) }
+            .onSuccess { profile ->
+                _uiState.update {
+                    it.copy(
+                        savedProfile = profile,
+                        screen = AppScreen.Home,
+                        isInitializing = false,
+                        isBusy = false,
+                        infoBanner = "Welcome back, ${profile.displayName}.",
+                        sessionError = null
+                    )
+                }
+            }
+            .onFailure { error ->
+                _uiState.update {
+                    it.copy(
+                        onboardingPage = if (localState.hasCompletedOnboarding) 2 else 0,
+                        screen = AppScreen.Onboarding,
+                        isInitializing = false,
+                        isBusy = false,
+                        sessionError = error.message ?: "Unable to restore profile."
+                    )
+                }
+            }
+    }
+
     private fun observeSession(sessionCode: String) {
         sessionObserverJob?.cancel()
         sessionObserverJob = viewModelScope.launch {
@@ -195,7 +362,9 @@ class WordDuelViewModel(
                 timerDraft = snapshot.timerSeconds.toString(),
                 letterDraft = if (snapshot.phase == SessionPhase.PickingLetters) state.letterDraft else "",
                 wordDraft = if (snapshot.phase == SessionPhase.Round) state.wordDraft else "",
-                sessionError = null
+                sessionError = null,
+                isBusy = false,
+                isInitializing = false
             )
         }
         when (snapshot.phase) {
@@ -231,7 +400,7 @@ class WordDuelViewModel(
     private fun requireProfile(): PlayerProfile? {
         val profile = _uiState.value.savedProfile
         if (profile == null) {
-            _uiState.update { it.copy(sessionError = "Save your username first.") }
+            _uiState.update { it.copy(sessionError = "Save your player name first.") }
         }
         return profile
     }
@@ -249,7 +418,8 @@ class WordDuelViewModel(
                 secondsRemaining = 0,
                 infoBanner = message,
                 sessionError = null,
-                isSubmittingWord = false
+                isSubmittingWord = false,
+                isBusy = false
             )
         }
     }
@@ -257,12 +427,17 @@ class WordDuelViewModel(
 
 class WordDuelViewModelFactory(
     private val repository: WordValidationRepository,
-    private val sessionRepository: SessionRepository = FirebaseSessionRepository()
+    private val sessionRepository: SessionRepository = FirebaseSessionRepository(),
+    private val profilePreferencesRepository: ProfilePreferencesRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(WordDuelViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return WordDuelViewModel(repository, sessionRepository) as T
+            return WordDuelViewModel(
+                repository = repository,
+                sessionRepository = sessionRepository,
+                profilePreferencesRepository = profilePreferencesRepository
+            ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }

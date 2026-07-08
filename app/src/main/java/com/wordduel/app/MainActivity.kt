@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.wordduel.app.data.network.NetworkModule
+import com.wordduel.app.data.profile.ProfilePreferencesRepository
 import com.wordduel.app.data.repository.RetrofitWordValidationRepository
 import com.wordduel.app.data.session.FirebaseSessionRepository
 import com.wordduel.app.ui.WordDuelApp
@@ -23,13 +24,15 @@ class MainActivity : ComponentActivity() {
             source = BuildConfig.WORD_VALIDATOR_SOURCE,
             enableLogging = BuildConfig.ENABLE_HTTP_LOGGING
         )
+        val profileRepository = ProfilePreferencesRepository(applicationContext)
 
         setContent {
             WordDuelTheme {
                 val viewModel: WordDuelViewModel = viewModel(
                     factory = WordDuelViewModelFactory(
                         repository = RetrofitWordValidationRepository(networkModule),
-                        sessionRepository = FirebaseSessionRepository()
+                        sessionRepository = FirebaseSessionRepository(),
+                        profilePreferencesRepository = profileRepository
                     )
                 )
                 WordDuelApp(viewModel = viewModel)

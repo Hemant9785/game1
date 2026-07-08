@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface SessionRepository {
     suspend fun saveProfile(displayName: String): PlayerProfile
+    suspend fun signOut()
     suspend fun createSession(profile: PlayerProfile, timerSeconds: Int): SessionSnapshot
     suspend fun joinSession(sessionCode: String, profile: PlayerProfile): Result<SessionSnapshot>
     fun observeSession(sessionCode: String): Flow<SessionSnapshot?>

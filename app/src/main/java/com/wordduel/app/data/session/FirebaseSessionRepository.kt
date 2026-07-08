@@ -28,6 +28,10 @@ class FirebaseSessionRepository(
         return profile
     }
 
+    override suspend fun signOut() {
+        auth.signOut()
+    }
+
     override suspend fun createSession(profile: PlayerProfile, timerSeconds: Int): SessionSnapshot {
         ensureSignedIn()
         val code = generateCode()

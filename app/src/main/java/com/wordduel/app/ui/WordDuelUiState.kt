@@ -4,7 +4,12 @@ import com.wordduel.app.data.session.PlayerProfile
 import com.wordduel.app.data.session.SessionSnapshot
 
 enum class AppScreen {
+    Loading,
+    Onboarding,
     Home,
+    CreateGame,
+    JoinGame,
+    Settings,
     Lobby,
     LetterPick,
     Round,
@@ -12,7 +17,10 @@ enum class AppScreen {
 }
 
 data class WordDuelUiState(
-    val screen: AppScreen = AppScreen.Home,
+    val screen: AppScreen = AppScreen.Loading,
+    val onboardingPage: Int = 0,
+    val isInitializing: Boolean = true,
+    val isBusy: Boolean = false,
     val profileNameDraft: String = "",
     val joinCodeDraft: String = "",
     val timerDraft: String = "60",
